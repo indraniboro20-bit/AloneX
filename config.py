@@ -19,23 +19,23 @@ class Config:
         self.SESSION2 = getenv("SESSION2", None)
         self.SESSION3 = getenv("SESSION3", None)
 
-        self.SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/AloneUpdates")
-        self.SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/AloneBotSupport")
+        self.SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ll_ABOUT_LUCIFER_ll")
+        self.SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/+_ENAOUlC1DM5OTM1")
 
         self.AUTO_END: bool = getenv("AUTO_END", False)
         self.AUTO_LEAVE: bool = getenv("AUTO_LEAVE", False)
         self.VIDEO_PLAY: bool = getenv("VIDEO_PLAY", True)
 
         self.QUEUE_LIMIT = int(getenv("QUEUE_LIMIT", "50"))
-        self.DURATION_LIMIT = int(getenv("DURATION_LIMIT", "5400"))
-        self.PLAYLIST_LIMIT = int(getenv("PLAYLIST_LIMIT", "20"))
+        self.DURATION_LIMIT = int(getenv("DURATION_LIMIT", "8400"))
+        self.PLAYLIST_LIMIT = int(getenv("PLAYLIST_LIMIT", "30"))
         self.COOKIES_URL = [
             url for url in getenv("COOKIES_URL", "").split(" ")
             if url and "batbin.me" in url
         ]
         self.DEFAULT_THUMB = getenv("DEFAULT_THUMB", "https://te.legra.ph/file/3e40a408286d4eda24191.jpg")
-        self.PING_IMG = getenv("PING_IMG", "https://files.catbox.moe/haagg2.png")
-        self.START_IMG = getenv("START_IMG", "https://files.catbox.moe/zvziwk.jpg")
+        self.PING_IMG = getenv("PING_IMG", "https://stormy-yellow-toec9xz9.edgeone.dev/file_00000000e6a872089ad9029e4a1b77c2.png")
+        self.START_IMG = getenv("START_IMG", "https://stormy-yellow-toec9xz9.edgeone.dev/file_00000000e6a872089ad9029e4a1b77c2.png")
 
     def check(self):
         missing = [
