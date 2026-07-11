@@ -61,7 +61,22 @@ class TgCall(PyTgCalls):
             await message.edit_text(_lang["error_no_file"].format(config.SUPPORT_CHAT))
             return await self.play_next(chat_id)
 
+        ffmpeg_opts = "-nobuffer -probesize 32 -analyzeduration 0"
+        if seek_time > 1:
+            ffmpeg_opts += f" -ss {seek_time}"
+
         stream = types.MediaStream(
+            media_path=media.file_path,
+            audio_parameters=types.AudioQuality.STUDIO, # Studio quality fast chunk processing karti hai
+            video_parameters=types.VideoQuality.HD_720p,
+            audio_flags=types.MediaStream.Flags.REQUIRED,
+            video_flags=(
+                types.MediaStream.Flags.AUTO_DETECT
+                if media.video
+                else types.MediaStream.Flags.IGNORE
+            ),
+            ffmpeg_parameters=ffmpeg_opts, # Fast FFmpeg parameters jode gaye hain
+        )
             media_path=media.file_path,
             audio_parameters=types.AudioQuality.HIGH,
             video_parameters=types.VideoQuality.HD_720p,
