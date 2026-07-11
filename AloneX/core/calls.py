@@ -1,8 +1,3 @@
-# Copyright (c) 2025 TheHamkerAlone
-# Licensed under the MIT License.
-# This file is part of AloneXMusic
-# ALONE-CODER
-
 from ntgcalls import (ConnectionNotFound, TelegramServerError,
                       RTMPStreamingUnsupported)
 from pyrogram.errors import MessageIdInvalid
@@ -61,13 +56,14 @@ class TgCall(PyTgCalls):
             await message.edit_text(_lang["error_no_file"].format(config.SUPPORT_CHAT))
             return await self.play_next(chat_id)
 
+        # ⚡ FAST STREAM ARGUMENTS ADDED HERE
         ffmpeg_opts = "-nobuffer -probesize 32 -analyzeduration 0"
         if seek_time > 1:
             ffmpeg_opts += f" -ss {seek_time}"
 
         stream = types.MediaStream(
             media_path=media.file_path,
-            audio_parameters=types.AudioQuality.STUDIO, # Studio quality fast chunk processing karti hai
+            audio_parameters=types.AudioQuality.STUDIO, 
             video_parameters=types.VideoQuality.HD_720p,
             audio_flags=types.MediaStream.Flags.REQUIRED,
             video_flags=(
@@ -75,18 +71,7 @@ class TgCall(PyTgCalls):
                 if media.video
                 else types.MediaStream.Flags.IGNORE
             ),
-            ffmpeg_parameters=ffmpeg_opts, # Fast FFmpeg parameters jode gaye hain
-        )
-            media_path=media.file_path,
-            audio_parameters=types.AudioQuality.HIGH,
-            video_parameters=types.VideoQuality.HD_720p,
-            audio_flags=types.MediaStream.Flags.REQUIRED,
-            video_flags=(
-                types.MediaStream.Flags.AUTO_DETECT
-                if media.video
-                else types.MediaStream.Flags.IGNORE
-            ),
-            ffmpeg_parameters=f"-ss {seek_time}" if seek_time > 1 else None,
+            ffmpeg_parameters=ffmpeg_opts, 
         )
         try:
             await client.play(
