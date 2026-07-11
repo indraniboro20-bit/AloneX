@@ -19,7 +19,7 @@ class Config:
         self.SESSION2 = getenv("SESSION2", None)
         self.SESSION3 = getenv("SESSION3", None)
 
-        self.SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ll_ABOUT_LUCIFER_ll")
+        self.SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/MARCO_BOTS")
         self.SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/+_ENAOUlC1DM5OTM1")
 
         self.AUTO_END: bool = getenv("AUTO_END", False)
@@ -34,8 +34,8 @@ class Config:
             if url and "batbin.me" in url
         ]
         self.DEFAULT_THUMB = getenv("DEFAULT_THUMB", "https://te.legra.ph/file/3e40a408286d4eda24191.jpg")
-        self.PING_IMG = getenv("PING_IMG", "https://stormy-yellow-toec9xz9.edgeone.dev/file_00000000e6a872089ad9029e4a1b77c2.png")
-        self.START_IMG = getenv("START_IMG", "https://stormy-yellow-toec9xz9.edgeone.dev/file_00000000e6a872089ad9029e4a1b77c2.png")
+        self.PING_IMG = getenv("PING_IMG", "https://files.catbox.moe/c9xeis.jpg")
+        self.START_IMG = getenv("START_IMG", "https://files.catbox.moe/c9xeis.jpg")
 
     def check(self):
         missing = [
